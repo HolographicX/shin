@@ -27,7 +27,7 @@
     packet
     fractal
     gnome-text-editor
-    amberol
+    # amberol
     inputs.mynixpkgs.packages.${stdenv.hostPlatform.system}.camoverlay
 
     inkscape
