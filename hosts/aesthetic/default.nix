@@ -8,39 +8,6 @@
 }: {
   imports = [./hardware-configuration.nix];
 
-  age = {
-    identityPaths = [
-      "/etc/ssh/ssh_host_ed25519_key"
-    ];
-
-    secrets = {
-      discordo = {
-        file = "${self}/secrets/discordo.age";
-        owner = username;
-        group = "users";
-        mode = "0400";
-      };
-      github = {
-        file = "${self}/secrets/github.age";
-        owner = username;
-        group = "users";
-        mode = "0400";
-      };
-      openrouter = {
-        file = "${self}/secrets/openrouter.age";
-        owner = username;
-        group = "users";
-        mode = "0400";
-      };
-      twt = {
-        file = "${self}/secrets/twt.age";
-        owner = username;
-        group = "users";
-        mode = "0400";
-      };
-    };
-  };
-
   nixpkgs.overlays = [self.inputs.nix-cachyos-kernel.overlays.pinned];
 
   boot = {
