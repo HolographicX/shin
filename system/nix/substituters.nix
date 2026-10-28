@@ -8,6 +8,7 @@
       "https://fufexan.cachix.org"
       "https://linuxmobile.cachix.org"
       "https://nix-community.cachix.org"
+      "https://cache.xinux.uz"
     ];
 
     trusted-public-keys = [
@@ -17,6 +18,7 @@
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "linuxmobile.cachix.org-1:2K7KEjzbd3U+qMQRte/DGqttosw8EGgGVvu8vKu8D6A="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
     ];
   };
 }
