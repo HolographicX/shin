@@ -30,7 +30,7 @@
       meteor-git
       nix-search-tv
       opencode
-      gemini-cli
+      antigravity-cli
     ]
     ++ (with inputs.mynixpkgs.packages.${stdenv.hostPlatform.system}; [
       nekot

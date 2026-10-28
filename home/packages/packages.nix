@@ -44,7 +44,7 @@
       '';
     }))
 
-    swww
+    awww
     openvpn
     fprintd
     kdePackages.qt6ct

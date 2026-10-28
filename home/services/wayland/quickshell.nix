@@ -17,7 +17,7 @@
       gpu-screen-recorder
       gsettings-desktop-schemas
       material-symbols
-      swww
+      awww
       wl-clipboard
       wget
       python3
@@ -46,7 +46,7 @@
       qmlPaths="${lib.makeSearchPath "lib/qt-6/qml" quickshellDeps}:${lib.makeSearchPath "lib/qt-5/qml" quickshellDeps}"
 
 
-      for bin in ${pkgs.noctalia-qs}/bin/*; do
+      for bin in ${pkgs.noctalia}/bin/*; do
         name=$(basename "$bin")
         makeWrapper "$bin" "$out/bin/$name" \
           --prefix QML2_IMPORT_PATH : "$qmlPaths" \
