@@ -10,21 +10,21 @@
   xdg.configFile = {
     "fish/config.fish" = {
       text = ''
-        for secret in discordo openrouter github twt
-          if test -f /run/agenix/$secret
-            set -l val (cat /run/agenix/$secret)
-            set -l up (string upper $secret)
-            switch $secret
-              case discordo
-                set -gx DISCORDO_TOKEN $val
-                set -gx OXICORD_TOKEN $val
-              case openrouter context7 exa
-                set -gx "$up"_API_KEY $val
-              case '*'
-                set -gx "$up"_TOKEN $val
-            end
-          end
-        end
+        # for secret in discordo openrouter github twt
+        #   if test -f /run/agenix/$secret
+        #     set -l val (cat /run/agenix/$secret)
+        #     set -l up (string upper $secret)
+        #     switch $secret
+        #       case discordo
+        #         set -gx DISCORDO_TOKEN $val
+        #         set -gx OXICORD_TOKEN $val
+        #       case openrouter context7 exa
+        #         set -gx "$up"_API_KEY $val
+        #       case '*'
+        #         set -gx "$up"_TOKEN $val
+        #     end
+        #   end
+        # end
 
         set -gx NIXPKGS_ALLOW_UNFREE 1
         set -gx NIXPKGS_ALLOW_INSECURE 1
