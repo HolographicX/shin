@@ -4,7 +4,6 @@
     dbus = {
       implementation = "broker";
       packages = with pkgs; [
-        gcr
         gnome-settings-daemon
         libsecret
       ];
