@@ -4,11 +4,7 @@
   ...
 }: {
   boot = {
-    bootspec.enable = true;
-
-    initrd = {
-      systemd.enable = true;
-    };
+    
     supportedFilesystems = ["ntfs"];
 
     # use latest kernel

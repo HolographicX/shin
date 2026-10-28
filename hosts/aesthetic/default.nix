@@ -132,14 +132,6 @@
     i2c.enable = true;
   };
 
-  # Additional systemd hardening
-  systemd = {
-    coredump.extraConfig = ''
-      Storage=none
-      ProcessSizeMax=0
-    '';
-  };
-
   environment = {
     systemPackages = [pkgs.cryptsetup];
     etc."apparmor/parser.conf" = {
