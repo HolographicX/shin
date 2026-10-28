@@ -25,7 +25,6 @@ in {
         "${mod}/core/limine.nix"
         "${home}"
 
-        inputs.agenix.nixosModules.default
       ];
   };
 }
