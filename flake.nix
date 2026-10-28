@@ -1,6 +1,4 @@
 {
-  description = "linuxmobile flake configuration based on hjem";
-
   inputs = {
     systems.url = "github:nix-systems/default";
 

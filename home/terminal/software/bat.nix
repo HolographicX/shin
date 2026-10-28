@@ -1,5 +1,6 @@
 {
   pkgs,
+  username,
   lib,
   ...
 }: let
@@ -14,7 +15,7 @@ in {
     MANROFFOPT = "-c";
   };
 
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     bat
     manPager
   ];

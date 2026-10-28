@@ -1,8 +1,8 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "lazygit/config.yml";
   toYAML = (pkgs.formats.yaml {}).generate;
 in {
-  users.users.linuxmobile.packages = [pkgs.lazygit];
+  users.users.${username}.packages = [pkgs.lazygit];
   xdg.configFile."${configFile}".source = toYAML "config.yml" {
     disableStartupPopups = true;
     git = {

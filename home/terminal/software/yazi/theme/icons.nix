@@ -1,8 +1,8 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "yazi/theme.toml";
   toTOML = (pkgs.formats.toml {}).generate;
 in {
-  users.users.linuxmobile.packages = [pkgs.yazi];
+  users.users.${username}.packages = [pkgs.yazi];
   xdg.configFile."${configFile}".source = toTOML "theme.toml" {
     icons = {
       "*" = "";

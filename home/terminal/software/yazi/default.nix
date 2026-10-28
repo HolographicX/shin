@@ -1,12 +1,13 @@
 {
   config,
   pkgs,
+  username,
   ...
 }: let
   configFile = "yazi/yazi.toml";
   toTOML = (pkgs.formats.toml {}).generate;
 in {
-  users.users.linuxmobile.packages = [pkgs.yazi];
+  users.users.${username}.packages = [pkgs.yazi];
   xdg.configFile."${configFile}".source = toTOML "yazi.toml" {
     mgr = {
       layout = [1 4 3];

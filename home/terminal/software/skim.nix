@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "skim/skimrc";
 
   skimDefault = pkgs.symlinkJoin {
@@ -18,7 +18,7 @@
       "$@"
   '';
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     skim
     ripgrep
     eza

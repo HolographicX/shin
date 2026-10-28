@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  users.users.linuxmobile.packages = with pkgs; [
+{pkgs, username, ...}: {
+  users.users.${username}.packages = with pkgs; [
     bibata-cursors
     (whitesur-icon-theme.override {
       boldPanelIcons = true;
@@ -21,11 +21,11 @@
   xdg.configFile."gtk-3.0/bookmarks" = {
     mutable = true;
     text = ''
-      file:///home/linuxmobile/Downloads Downloads
-      file:///home/linuxmobile/Documents Documents
-      file:///home/linuxmobile/Music Music
-      file:///home/linuxmobile/Pictures Pictures
-      file:///home/linuxmobile/Videos Videos
+      file:///home/${username}/Downloads Downloads
+      file:///home/${username}/Documents Documents
+      file:///home/${username}/Music Music
+      file:///home/${username}/Pictures Pictures
+      file:///home/${username}/Videos Videos
     '';
   };
 }

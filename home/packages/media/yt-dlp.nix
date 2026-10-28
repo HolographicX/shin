@@ -1,11 +1,12 @@
 {
   config,
   pkgs,
+  username,
   ...
 }: let
   configFile = "yt-dlp/config";
 in {
-  users.users.linuxmobile.packages = with pkgs; [yt-dlp aria2];
+  users.users.${username}.packages = with pkgs; [yt-dlp aria2];
   xdg.configFile."${configFile}".text = ''
     -o ${config.home.homeDirectory}/Music/%(uploader)s/%(title)s.%(ext)s
     --embed-thumbnail

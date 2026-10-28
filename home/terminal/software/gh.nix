@@ -1,9 +1,9 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "gh/config.yml";
   hostsFile = "gh/hosts.yml";
   toYAML = (pkgs.formats.yaml {}).generate;
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     gh
   ];
 
@@ -24,6 +24,6 @@ in {
   xdg.configFile."${hostsFile}".text = ''
     github.com:
       git_protocol: https
-      user: linuxmobile
+      user: "${username}"
   '';
 }

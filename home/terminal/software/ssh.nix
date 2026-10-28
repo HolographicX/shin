@@ -1,11 +1,12 @@
 {
   config,
   pkgs,
+  username,
   ...
 }: let
   sshConfigFile = "ssh/config";
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     openssh
   ];
 

@@ -1,11 +1,12 @@
 {
   config,
   pkgs,
+  username,
   ...
 }: let
   configFile = "cliphist/cliphistrc";
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     cliphist
     wl-clipboard
   ];

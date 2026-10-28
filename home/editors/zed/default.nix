@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  username,
   ...
 }: let
   configFile = "zed/settings.json";
@@ -141,7 +142,7 @@
     '';
   };
 in {
-  users.users.linuxmobile.packages = [
+  users.users.${username}.packages = [
     zedWithLSP
   ];
   xdg.configFile."${configFile}" = {

@@ -1,8 +1,8 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "discordo/config.toml";
   toTOML = (pkgs.formats.toml {}).generate;
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     discordo
   ];
 

@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   twitchHLSConfig = "twitch-hls-client/config";
   twtConfig = "twt/config.toml";
 
@@ -33,7 +33,7 @@
 
   twtSettings = {
     twitch = {
-      username = "linuxmobile";
+      username = username;
       channel = "bunzopy";
       server = "irc.chat.twitch.tv";
     };
@@ -79,7 +79,7 @@
     };
   };
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     twitch-hls-client
     twitch-tui
     mpv

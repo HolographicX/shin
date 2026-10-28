@@ -1,12 +1,13 @@
 {
   config,
   pkgs,
+  username,
   ...
 }: let
   gpgConfigFile = "gnupg/gpg.conf";
   agentConfigFile = "gnupg/gpg-agent.conf";
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     gnupg
     pinentry-gnome3
   ];

@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  users.users.linuxmobile.packages = with pkgs; [
+{pkgs, username, ...}: {
+  users.users.${username}.packages = with pkgs; [
     television
     nix-search-tv
   ];

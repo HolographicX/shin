@@ -9,7 +9,10 @@
 
   inherit (import "${self}/system") desktop laptop;
 
-  specialArgs = {inherit inputs self;};
+  specialArgs = {
+    inherit inputs self;
+    username = "holographic";
+  };
 in {
   aesthetic = nixosSystem {
     inherit specialArgs;

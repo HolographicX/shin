@@ -1,14 +1,12 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   languages = import ./_languages.nix {inherit pkgs;};
-  skills = import ./_skills.nix {inherit pkgs;};
 
   inherit (pkgs) opencode;
 
   opencodeEnv = pkgs.buildEnv {
     name = "opencode-env";
     paths =
-      languages.packages
-      ++ skills.packages;
+      languages.packages;
   };
   opencodeInitScript = pkgs.writeShellScript "opencode-init" ''
     mkdir -p "$HOME/.local/cache/opencode/node_modules/@opencode-ai"
@@ -32,7 +30,7 @@
     '';
   configFile = "opencode/config.json";
 in {
-  users.users.linuxmobile.packages = [
+  users.users.${username}.packages = [
     opencodeWrapped
   ];
   xdg.configFile = {
@@ -99,6 +97,5 @@ in {
       };
       inherit (languages) formatter lsp;
     };
-    "opencode/skill".source = skills.skillsSource + "/skill";
   };
 }

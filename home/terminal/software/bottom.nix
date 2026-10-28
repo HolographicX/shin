@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "bottom/bottom.toml";
   toTOML = (pkgs.formats.toml {}).generate;
 
@@ -23,7 +23,7 @@
     '';
   };
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     bottom
     btopAlias
     htopAlias

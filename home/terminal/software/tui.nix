@@ -1,9 +1,10 @@
 {
   inputs,
   pkgs,
+  username,
   ...
 }: {
-  users.users.linuxmobile.packages = with pkgs;
+  users.users.${username}.packages = with pkgs;
     [
       # archives
       zip

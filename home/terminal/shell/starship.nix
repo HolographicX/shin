@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  username,
   ...
 }: let
   configFile = "starship/starship.toml";
@@ -10,7 +11,7 @@ in {
     STARSHIP_CONFIG = "${config.xdg.configHome}/${configFile}";
     STARSHIP_LOG = "error";
   };
-  users.users.linuxmobile.packages = [pkgs.starship];
+  users.users.${username}.packages = [pkgs.starship];
   xdg.configFile = {
     "${configFile}".source = toTOML "starship.toml" {
       add_newline = true;

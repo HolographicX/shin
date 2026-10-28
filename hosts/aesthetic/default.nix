@@ -3,6 +3,7 @@
   lib,
   pkgs,
   self,
+  username,
   ...
 }: {
   imports = [./hardware-configuration.nix];
@@ -15,25 +16,25 @@
     secrets = {
       discordo = {
         file = "${self}/secrets/discordo.age";
-        owner = "linuxmobile";
+        owner = username;
         group = "users";
         mode = "0400";
       };
       github = {
         file = "${self}/secrets/github.age";
-        owner = "linuxmobile";
+        owner = username;
         group = "users";
         mode = "0400";
       };
       openrouter = {
         file = "${self}/secrets/openrouter.age";
-        owner = "linuxmobile";
+        owner = username;
         group = "users";
         mode = "0400";
       };
       twt = {
         file = "${self}/secrets/twt.age";
-        owner = "linuxmobile";
+        owner = username;
         group = "users";
         mode = "0400";
       };

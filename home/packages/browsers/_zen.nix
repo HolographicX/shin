@@ -1,9 +1,10 @@
 {
   inputs,
   pkgs,
+  username,
   ...
 }: {
-  users.users.linuxmobile.packages = [
+  users.users.${username}.packages = [
     (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta.override
       {
         extraPolicies = {

@@ -1,11 +1,12 @@
 {
   pkgs,
+  username,
   lib,
   ...
 }: let
   configFile = "ghostty/config";
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     ghostty
   ];
 

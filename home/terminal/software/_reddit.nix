@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "reddittui/reddittui.toml";
   toTOML = (pkgs.formats.toml {}).generate;
 
@@ -31,7 +31,7 @@
     exec ${pkgs.reddit-tui}/bin/reddittui --subreddit ${builtins.concatStringsSep "+" mySubreddits} "$@"
   '';
 in {
-  users.users.linuxmobile.packages = [
+  users.users.${username}.packages = [
     pkgs.reddit-tui
     redditLauncher
   ];

@@ -1,13 +1,14 @@
 {
   config,
   pkgs,
+  username,
   ...
 }: let
   configFile = "git/config";
   ignoreFile = "git/ignore";
   toINI = (pkgs.formats.ini {}).generate;
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     git
     delta
     gnupg

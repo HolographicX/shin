@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, username, ...}: {
   # greetd display manager
 
   services.greetd = {
@@ -11,7 +11,7 @@
       };
       initial_session = {
         command = "${pkgs.niri}/bin/niri-session";
-        user = "linuxmobile";
+        user = username;
       };
     };
   };

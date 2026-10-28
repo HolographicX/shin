@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "helix/config.toml";
   toTOML = (pkgs.formats.toml {}).generate;
   languagesTOML = import ./_languages.nix {inherit pkgs;};
@@ -41,7 +41,7 @@
       done
     '';
 in {
-  users.users.linuxmobile.packages = [
+  users.users.${username}.packages = [
     helixWithLSP
   ];
 

@@ -1,8 +1,8 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "mods/mods.yml";
   toYAML = (pkgs.formats.yaml {}).generate;
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     mods
   ];
 

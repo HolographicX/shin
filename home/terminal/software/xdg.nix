@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  username,
   ...
 }: let
   browser = ["helium.desktop"];
@@ -49,7 +50,7 @@
     XDG_VIDEOS_DIR="$HOME/Videos"
   '';
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     xdg-utils
     (writeShellScriptBin "xdg-terminal-exec" ''foot start "$@"'')
   ];

@@ -1,5 +1,6 @@
 {
   pkgs,
+  username,
   lib,
   ...
 }: let
@@ -8,7 +9,7 @@
     mkKeyValue = lib.generators.mkKeyValueDefault {} " = ";
   };
 in {
-  users.users.linuxmobile.packages = with pkgs; [swayimg];
+  users.users.${username}.packages = with pkgs; [swayimg];
 
   xdg.configFile."${configFile}".text = toINI {
     info = {show = "no";};

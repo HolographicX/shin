@@ -1,12 +1,13 @@
 {
   pkgs,
+  username,
   self,
   ...
 }: let
   direnvConfigFile = "direnv/direnv.toml";
   direnvRcFile = "direnv/direnvrc";
 in {
-  users.users.linuxmobile.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     alejandra
     deadnix
     statix

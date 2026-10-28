@@ -1,5 +1,6 @@
 {
   pkgs,
+  username,
   ...
 }: let
   lspPackages = with pkgs; [
@@ -45,7 +46,7 @@
     '';
   };
 in {
-  users.users.linuxmobile.packages = [
+  users.users.${username}.packages = [
     flowWithLSP
   ];
 }

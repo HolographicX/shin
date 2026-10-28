@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   obsBase = pkgs.obs-studio.override {
     pipewireSupport = true;
     browserSupport = true;
@@ -29,7 +29,7 @@
     '';
   };
 in {
-  users.users.linuxmobile.packages = [
+  users.users.${username}.packages = [
     obsWrapped
     pkgs.obs-cmd
   ];

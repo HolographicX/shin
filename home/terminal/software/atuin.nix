@@ -1,8 +1,8 @@
-{pkgs, ...}: let
+{pkgs, username, ...}: let
   configFile = "atuin/config.toml";
   toTOML = (pkgs.formats.toml {}).generate;
 in {
-  users.users.linuxmobile.packages = [
+  users.users.${username}.packages = [
     pkgs.atuin
   ];
 

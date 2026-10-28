@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  username,
   lib,
   ...
 }: let
@@ -53,7 +54,7 @@
       done
     '';
 in {
-  users.users.linuxmobile.packages =
+  users.users.${username}.packages =
     [
       quickshellWrapped
     ]

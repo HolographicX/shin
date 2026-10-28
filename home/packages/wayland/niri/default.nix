@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  username,
   ...
 }: let
   toKDL = import ./_to-KDL.nix {inherit lib pkgs;};
@@ -15,7 +16,7 @@ in {
     NIRI_CONFIG = "$HOME/.config/niri/config.kdl";
   };
 
-  users.users.linuxmobile.packages = with pkgs; [niri];
+  users.users.${username}.packages = with pkgs; [niri];
 
   xdg.configFile."niri/config.kdl".text = builtins.readFile finalConfig;
 }
