@@ -7,7 +7,7 @@
   browser = ["helium.desktop"];
   imageViewer = ["org.gnome.Loupe.desktop"];
   videoPlayer = ["io.github.celluloid_player.Celluloid.desktop"];
-  # audioPlayer = ["io.bassi.Amberol.desktop"];
+  audioPlayer = ["io.bassi.Amberol.desktop"];
 
   xdgAssociations = type: program: list:
     builtins.listToAttrs (map (e: {
@@ -18,7 +18,7 @@
 
   image = xdgAssociations "image" imageViewer ["png" "jpg" "jpeg" "gif" "webp" "bmp" "tiff" "tif" "ico" "svg" "avif" "heic" "heif"];
   video = xdgAssociations "video" videoPlayer ["mp4" "avi" "mkv" "mov" "wmv" "flv" "webm" "m4v" "3gp" "ogv" "ts" "mts" "m2ts"];
-  # audio = xdgAssociations "audio" audioPlayer ["mp3" "flac" "wav" "aac" "ogg" "oga" "opus" "m4a" "wma" "ape" "alac" "aiff"];
+  audio = xdgAssociations "audio" audioPlayer ["mp3" "flac" "wav" "aac" "ogg" "oga" "opus" "m4a" "wma" "ape" "alac" "aiff"];
 
   browserTypes =
     (xdgAssociations "application" browser ["json" "x-extension-htm" "x-extension-html" "x-extension-shtml" "x-extension-xht" "x-extension-xhtml"])
