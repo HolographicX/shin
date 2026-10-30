@@ -30,6 +30,8 @@
         config.allowUnfree = true;
       };
   in {
+    nixosConfigurations = import ./hosts {inherit self inputs;};
+
     packages =
       forAllSystems (system:
         import ./pkgs {pkgs = pkgsFor system;});
