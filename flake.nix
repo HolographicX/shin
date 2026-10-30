@@ -30,7 +30,7 @@
         config.allowUnfree = true;
       };
   in {
-    nixosConfigurations = import ./hosts {inherit self inputs;};
+    nixosConfigurations = import ./hosts/yoga {inherit self inputs;};
 
     packages =
       forAllSystems (system:
