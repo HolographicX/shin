@@ -5,10 +5,6 @@
   ...
 }: {
   users.users.${username}.packages = with pkgs; [
-    # messaging
-    telegram-desktop
-    equibop
-
     # misc
     pciutils
     nixos-icons

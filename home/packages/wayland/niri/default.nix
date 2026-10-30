@@ -1,22 +1,34 @@
 {
+  config,
   inputs,
-  lib,
   pkgs,
-  username,
   ...
 }: let
-  toKDL = import ./_to-KDL.nix {inherit lib pkgs;};
-  settings = import ./_settings.nix {inherit lib pkgs;};
-  binds = import ./_binds.nix {inherit inputs pkgs;};
+  settings = import ./_settings.nix {};
+  binds = import ./_binds.nix {inherit pkgs;};
   rules = import ./_rules.nix;
 
-  finalConfig = toKDL.generate "niri-config.kdl" (settings // {binds = binds;} // rules);
+  validatedConfig = inputs.niri.lib.internal.validated-config-for pkgs config.programs.niri.package config.programs.niri.finalConfig;
 in {
+  imports = [
+    inputs.niri.nixosModules.niri
+    inputs.niri.lib.internal.settings-module
+  ];
+
+  programs.niri = {
+    enable = true;
+    package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+    settings = settings // {inherit binds;} // rules;
+  };
+
   environment.sessionVariables = {
     NIRI_CONFIG = "$HOME/.config/niri/config.kdl";
   };
 
-  users.users.${username}.packages = with pkgs; [niri];
+  systemd.user.services.niri-flake-polkit.enable = false;
 
-  xdg.configFile."niri/config.kdl".text = builtins.readFile finalConfig;
+  xdg.configFile."niri/config.kdl".source = pkgs.runCommand "niri-config.kdl" {} ''
+    printf 'include "noctalia.kdl"\n' > $out
+    cat ${validatedConfig} >> $out
+  '';
 }
