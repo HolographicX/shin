@@ -15,10 +15,7 @@
     kernelPackages = lib.mkForce pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
     kernelModules = ["i2c-dev" "v4l2loopback"];
-    kernelParams = [
-      "amd_pstate=active" # Enable AMD P-state CPU scaling driver
-      "amd_iommu=force" # Force AMD IOMMU for better DMA protection
-      "ideapad_laptop" # Allow Lenovo IdeaPad v4 Dynamic Thermal Control
+    kernelParams = [  
       # "nvme_core.default_ps_max_latency_us=0" # Set NVMe power state latency to minimum (max performance)
       "preempt=voluntary"
       "nowatchdog"
@@ -89,9 +86,8 @@
       "udf" # https://docs.kernel.org/5.15/filesystems/udf.html
       "vivid" # Virtual Video Test Driver (unnecessary)
 
-      # Disable Thunderbolt and FireWire to prevent DMA attacks
+      # Disable FireWire to prevent DMA attacks
       "firewire-core"
-      "thunderbolt"
     ];
 
     extraModprobeConfig = ''
@@ -128,7 +124,7 @@
 
   hardware = {
     enableRedistributableFirmware = true;
-    cpu.amd.updateMicrocode = true;
+    cpu.intel.updateMicrocode = true;
     i2c.enable = true;
   };
 
